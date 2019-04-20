@@ -1,0 +1,252 @@
+$topbar-height: 60px;
+$topbar-margin-vertical: 1;
+$topbar-margin-horizontal: $topbar-margin-vertical/2;
+$topbar-padding-vertical: 1;
+$topbar-padding-horizontal: $topbar-padding-vertical/2;
+$topbar-item-padding-horizontal: 0;
+$topbar-item-padding-vertical: 0.5;
+$topbar-item-margin-vertical: 1;
+$topbar-item-margin-horizontal: $topbar-item-margin-vertical/2;
+$topbar-primary: #ECEFF1;//map-get($foundation-palette, primary);
+$topbar-secondary: map-get($foundation-palette, secondary);
+$topbar-font-primary: $black;
+$topbar-font-secondary: $white;
+$topbar-background: $topbar-primary;
+
+.ui-structor-frame {
+	@include xy-grid-container(100%, false);
+	margin: 0px;
+	.ui-structor-topbar {
+		outline: none;
+		min-height: $topbar-height;
+		background: #ECEFF1;
+		@include margin(
+			$topbar-margin-vertical,
+			$topbar-margin-horizontal,
+			$topbar-margin-vertical,
+			$topbar-margin-horizontal
+		);
+		&-horizontal {
+			// @include shadow;
+			@include xy-grid;
+    		align-items: center;
+		}
+
+		&-header {
+			@include xy-cell(2);
+			&-disabled {
+			}
+			a {
+				svg {
+					width: 100%;
+					max-width: 200px
+				}
+				.cls-1{
+					fill:#1c7ce5;
+				}
+				.cls-2{
+					fill:#f26116;
+				}
+				.cls-3{
+					fill:#f2b416;
+				}
+				.cls-4{
+					fill:#f27616;
+				}
+				.cls-5{
+					fill:#f7ec1e;
+				}
+			}
+		}
+
+		&-item {
+			@include xy-cell(2);
+			cursor: pointer;
+			color: $topbar-font-primary;
+			&-highlight {
+				color: #1c7ce5;
+				& a {
+
+				}
+			}
+			&-active {
+
+			}
+			&-content {
+				color: inherit;
+				text-align: center;
+				a {
+					font-size: 20px;
+					font-weight: 700;
+					color: inherit;
+					@include padding(
+						$topbar-item-padding-vertical,
+						$topbar-item-padding-horizontal,
+						$topbar-item-padding-vertical,
+						$topbar-item-padding-horizontal
+					);
+					@include margin(
+						$topbar-item-margin-vertical,
+						$topbar-item-margin-horizontal,
+						$topbar-item-margin-vertical,
+						$topbar-item-margin-horizontal
+					);
+					outline: none;
+					text-decoration: none;
+				}
+			}
+		}
+
+		&-accounts {
+			@include xy-cell(2);
+			cursor: pointer;
+			&-highlight {
+				div {
+					background: #FFDA26;
+					a {
+						color: #111;
+					}
+				}
+			}
+			&-active {
+
+			}
+			&-content {
+				@include border-radius;
+				background: #1c7ce5;
+				text-align: center;
+				transition: all 0.3s ease-out;
+				@include shadow;
+				@include padding(
+					$topbar-item-padding-vertical,
+					$topbar-item-padding-horizontal,
+					$topbar-item-padding-vertical,
+					$topbar-item-padding-horizontal
+				);
+				a {
+					font-size: 20px;
+					font-weight: 700;
+					color: #fff;
+					@include margin(
+						$topbar-item-margin-vertical,
+						$topbar-item-margin-horizontal,
+						$topbar-item-margin-vertical,
+						$topbar-item-margin-horizontal
+					);
+					outline: none;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	.ui-structor-outlet {
+		@include xy-grid-container(100%, true);
+		@include breakpoint (large up) {
+			@include xy-grid-container;
+		}
+		&-enter {
+			@include first-child {
+					visibility: hidden;
+			}
+			&-active {
+			}
+		}
+		&-leave {
+			@include first-child {
+			}
+			&-active {
+				@include first-child {
+					visibility: hidden;
+				}
+			}
+		}
+		.ui-structor {
+			@include xy-grid(vertical);
+
+			&-header {
+				@include xy-cell;
+				&-container {
+					@include xy-grid;
+					font-weight: 900;
+				}
+			}
+			&-content {
+				@include xy-cell;
+				&-container {
+					@include xy-grid(vertical);
+				}
+			}
+		}
+	}
+	.ui-structor-footer {
+		// @include inner-side-shadow(top);
+		&-container {
+			@include xy-grid-container(100%, false);
+		}
+		&-content {
+			@include xy-grid(vertical);
+			background: lighten( #ECEFF1, 3% );
+			.sub {
+				background: #ECEFF1;
+			}
+		}
+		&-row {
+			@include xy-grid;
+		}
+		&-col {
+			@include xy-cell(auto);
+			@include xy-grid;
+			& div {
+				@include xy-cell;
+			}
+			.company-info {
+				.header {
+					h3 {
+						font-size: 2rem;
+						line-height: 2;
+						font-weight: 900;
+					}
+				}
+				.sub-header {
+					p {
+						font-size: 1rem;
+						line-height: 1.4;
+					}
+				}
+			}
+			.contact-info {
+				.address {
+
+				}
+				.phone {
+
+				}
+				.email {
+
+				}
+			}
+			.site-info {
+				padding: 0px;
+				.map {
+					text-align: center;
+					ul {
+						text-align: center;
+						@include menu-base;
+						@include flex-align(justify);
+					}
+				}
+				.copyright {
+					@include xy-grid;
+					@include flex-align(null, middle);
+					p {
+						@include xy-cell(auto);
+						margin: 0px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@import './components/hero-section';
+@import './components/features/index';

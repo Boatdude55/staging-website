@@ -1,0 +1,159 @@
+/**
+ * @fileoverview
+ *
+ * Styles for budget components
+ */
+$budget-background: #c8c9cb;
+$budget-main-background: $white;
+$budget-width: 960px;
+$budget-height: 460px;
+$budget-size: auto;
+$budget-gutter-output: true;
+$budget-gutters: $grid-margin-gutters;
+$budget-gutter-type: margin;
+$budget-gutter-position: top bottom;
+$budget-breakpoint: null;
+$budget-vertical: false;
+// Feature
+$budget-padding-left: 0;
+$budget-padding-right: 0;
+$budget-padding-top: 5;
+$budget-padding-bottom: 5;
+$budget-margin-left: 8;
+$budget-margin-right: 8;
+$budget-margin-top: 0;
+$budget-margin-bottom: 0;
+// Feature Main
+$budget-main-padding-left: 7;
+$budget-main-padding-right: $budget-main-padding-left + 3;
+$budget-main-padding-top: 6;
+$budget-main-padding-bottom: 6;
+$budget-main-margin-left: -8;
+$budget-main-margin-right: 0;
+$budget-main-margin-top: 0;
+$budget-main-margin-bottom: 0;
+// Feature Title
+$budget-title-primary: #1c7ce5;
+
+.ui-structor-budget{
+	@include xy-cell(
+			$budget-size,
+			$budget-gutter-output,
+			$budget-gutters,
+			$budget-gutter-type,
+			$budget-gutter-position
+		);
+	@include border-box;
+	&-container {
+		@include border-box;
+		@include breakpoint(medium up) {
+			@include margin(
+				$budget-margin-top,
+				$budget-margin-right,
+				$budget-margin-bottom,
+				$budget-margin-left
+			);
+		}
+	}
+	&-content {
+		@include border-box;
+		.budget {
+			@include border-box;
+			@include xy-grid;
+			@include breakpoint(medium up) {
+				position: relative;
+				@include padding(
+					$budget-padding-top,
+					$budget-padding-right,
+					$budget-padding-bottom,
+					$budget-padding-left
+				);
+			}
+			@include border-box;
+			&-digit {
+				color: lighten(rgb(23, 41, 120), 15%);
+				@include text-transform(uppercase);
+				@include breakpoint(medium up) {
+					position: absolute;
+					bottom: 25%;
+					right: 0;
+					font-size: 11rem;
+					font-weight: 700;
+					line-height: .7;
+					letter-spacing: 0.34px;
+				}
+				@include breakpoint(xxlarge up) {
+					position: absolute;
+					bottom: 25%;
+					right: 10%;
+					font-size: 10rem;
+					font-weight: 700;
+					line-height: .7;
+					letter-spacing: 0.34px;
+				}
+			}
+			&-main {
+				background: $white;
+				color: $budget-title-primary;
+				font-weight: 400;
+			    font-size: 1.5rem;
+			    letter-spacing: .02em;
+			    line-height: 1.8;
+			    @include border-radius(8);
+			    @include shadow;
+				@include breakpoint(medium up) {
+					@include padding(
+						$budget-main-padding-top,
+						$budget-main-padding-right,
+						$budget-main-padding-bottom,
+						$budget-main-padding-left
+					);
+					@include margin(
+						$budget-main-margin-top,
+						$budget-main-margin-right,
+						$budget-main-margin-bottom,
+						$budget-main-margin-left
+					);
+					position: absolute;
+					z-index: -1;
+					max-width: 50%;
+					@include flex;
+					@include flex-align(spaced, stretch);
+				}
+				&-caption {
+					@include bordered(1px, solid, $budget-title-primary);
+				}
+				&-content {
+					@include text-wrap;
+				}
+			}
+			&-image {
+				box-sizing: border-box;
+				color: rgb(200, 201, 203);
+				display: block;
+				font-weight: 700;
+				width: 100%;
+				height: 400px;
+				@include breakpoint(medium) {
+					letter-spacing: 0.34px;
+					line-height: 434px;
+					transform: matrix(1, 0, 0, 1, 0, -30.3005);
+					width: 800px;
+					height: 600px;
+					z-index: -2;
+				}
+				@include breakpoint(large up) {
+					letter-spacing: 0.34px;
+					line-height: 434px;
+					transform: matrix(1, 0, 0, 1, 0, -30.3005);
+					width: 1000px;
+					height: 700px;
+					z-index: -2;
+				}
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

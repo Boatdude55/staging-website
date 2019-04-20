@@ -1,0 +1,149 @@
+/**
+ * @fileoverview
+ *
+ * Styles for feature components
+ */
+$feature-background: #c8c9cb;
+$feature-main-background: $white;
+$feature-width: 960px;
+$feature-height: 460px;
+$feature-size: auto;
+$feature-gutter-output: true;
+$feature-gutters: $grid-margin-gutters;
+$feature-gutter-type: margin;
+$feature-gutter-position: top bottom;
+$feature-breakpoint: null;
+$feature-vertical: false;
+// Feature
+$feature-padding-left: 0;
+$feature-padding-right: 0;
+$feature-padding-top: 5;
+$feature-padding-bottom: 5;
+$feature-margin-left: 8;
+$feature-margin-right: 8;
+$feature-margin-top: 0;
+$feature-margin-bottom: 0;
+// Feature Main
+$feature-main-padding-left: 7;
+$feature-main-padding-right: $feature-main-padding-left + 3;
+$feature-main-padding-top: 6;
+$feature-main-padding-bottom: 6;
+$feature-main-margin-left: -8;
+$feature-main-margin-right: 0;
+$feature-main-margin-top: 0;
+$feature-main-margin-bottom: 0;
+// Feature Title
+$feature-title-primary: #1c7ce5;
+.ui-structor-feature {
+	@include xy-cell(
+			$feature-size,
+			$feature-gutter-output,
+			$feature-gutters,
+			$feature-gutter-type,
+			$feature-gutter-position
+		);
+	#f-1 {
+		color: $feature-title-primary;
+	}
+	#f-2 {
+		background: $feature-title-primary !important;
+		color: #f0f0f0;
+	}
+	#f-3 {
+		color: $feature-title-primary;
+	}
+	@include border-box;
+	&-container {
+		@include border-box;
+		@include breakpoint(medium up) {
+			@include margin(
+				$feature-margin-top,
+				$feature-margin-right,
+				$feature-margin-bottom,
+				$feature-margin-left
+			);
+		}
+	}
+	&-content {
+		@include border-box;
+		.feature {
+			@include border-box;
+			@include xy-grid;
+			@include breakpoint(medium up) {
+				position: relative;
+				@include padding(
+					$feature-padding-top,
+					$feature-padding-right,
+					$feature-padding-bottom,
+					$feature-padding-left
+				);
+			}
+			@include border-box;
+			&-digit {
+				color: inherit;
+				@include text-transform(uppercase);
+				@include breakpoint(medium up) {
+					position: absolute;
+					bottom: 25%;
+					right: 0;
+					font-size: 10rem;
+					font-weight: 700;
+					line-height: .7;
+					letter-spacing: 0.34px;
+				}
+			}
+			&-main {
+				background: $white;
+				color: $feature-title-primary;
+				font-weight: 400;
+			    font-size: 1.5rem;
+			    letter-spacing: .02em;
+			    line-height: 1.8;
+			    @include border-radius(8);
+			    @include shadow;
+				@include breakpoint(medium up) {
+					@include padding(
+						$feature-main-padding-top,
+						$feature-main-padding-right,
+						$feature-main-padding-bottom,
+						$feature-main-padding-left
+					);
+					@include margin(
+						$feature-main-margin-top,
+						$feature-main-margin-right,
+						$feature-main-margin-bottom,
+						$feature-main-margin-left
+					);
+					position: absolute;
+					z-index: -1;
+					max-width: 50%;
+					@include flex;
+					@include flex-align(spaced, stretch);
+				}
+				&-caption {
+					@include bordered(1px, solid, $feature-title-primary);
+				}
+				&-content {
+					@include text-wrap;
+				}
+			}
+			&-image {
+				box-sizing: border-box;
+				color: rgb(200, 201, 203);
+				display: block;
+				font-weight: 700;
+				@include breakpoint(medium up) {
+					letter-spacing: 0.34px;
+					line-height: 434px;
+					transform: matrix(1, 0, 0, 1, 0, -30.3005);
+					width: 100%;
+					height: 100%;
+					z-index: -2;
+				}
+				img {
+					width:100%;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,158 @@
+/**
+ * @fileoverview
+ *
+ * Styles for save components
+ */
+$save-background: #c8c9cb;
+$save-main-background: $white;
+$save-width: 960px;
+$save-height: 460px;
+$save-size: auto;
+$save-gutter-output: true;
+$save-gutters: $grid-margin-gutters;
+$save-gutter-type: margin;
+$save-gutter-position: top bottom;
+$save-breakpoint: null;
+$save-vertical: false;
+// Feature
+$save-padding-left: 0;
+$save-padding-right: 0;
+$save-padding-top: 5;
+$save-padding-bottom: 5;
+$save-margin-left: 8;
+$save-margin-right: 8;
+$save-margin-top: 0;
+$save-margin-bottom: 0;
+// Feature Main
+$save-main-padding-left: 7;
+$save-main-padding-right: $save-main-padding-left + 3;
+$save-main-padding-top: 6;
+$save-main-padding-bottom: 6;
+$save-main-margin-left: -8;
+$save-main-margin-right: 0;
+$save-main-margin-top: 0;
+$save-main-margin-bottom: 0;
+// Feature Title
+$save-title-primary: #1c7ce5;
+.ui-structor-save {
+	@include xy-cell(
+			$save-size,
+			$save-gutter-output,
+			$save-gutters,
+			$save-gutter-type,
+			$save-gutter-position
+		);
+	@include border-box;
+	&-container {
+		@include border-box;
+		@include breakpoint(medium up) {
+			@include margin(
+				$save-margin-top,
+				$save-margin-right,
+				$save-margin-bottom,
+				$save-margin-left
+			);
+		}
+	}
+	&-content {
+		@include border-box;
+		.save {
+			@include border-box;
+			@include xy-grid;
+			@include breakpoint(medium up) {
+				position: relative;
+				@include padding(
+					$save-padding-top,
+					$save-padding-right,
+					$save-padding-bottom,
+					$save-padding-left
+				);
+			}
+			@include border-box;
+			&-digit {
+				color: lighten(rgb(23, 41, 120), 15%);
+				@include text-transform(uppercase);
+				@include breakpoint(medium up) {
+					position: absolute;
+					bottom: 25%;
+					right: 0;
+					font-size: 11rem;
+					font-weight: 700;
+					line-height: .7;
+					letter-spacing: 0.34px;
+				}
+				@include breakpoint(xxlarge up) {
+					position: absolute;
+					bottom: 25%;
+					right: 20%;
+					font-size: 10rem;
+					font-weight: 700;
+					line-height: .7;
+					letter-spacing: 0.34px;
+				}
+			}
+			&-main {
+				background: $white;
+				color: $save-title-primary;
+				font-weight: 400;
+			    font-size: 1.5rem;
+			    letter-spacing: .02em;
+			    line-height: 1.8;
+			    @include border-radius(8);
+			    @include shadow;
+				@include breakpoint(medium up) {
+					@include padding(
+						$save-main-padding-top,
+						$save-main-padding-right,
+						$save-main-padding-bottom,
+						$save-main-padding-left
+					);
+					@include margin(
+						$save-main-margin-top,
+						$save-main-margin-right,
+						$save-main-margin-bottom,
+						$save-main-margin-left
+					);
+					position: absolute;
+					z-index: -1;
+					max-width: 50%;
+					@include flex;
+					@include flex-align(spaced, stretch);
+				}
+				&-caption {
+					@include bordered(1px, solid, $save-title-primary);
+				}
+				&-content {
+					@include text-wrap;
+				}
+			}
+			&-image {
+				box-sizing: border-box;
+				color: rgb(200, 201, 203);
+				display: block;
+				font-weight: 700;
+				width: 400px;
+				height: 400px;
+				@include breakpoint(medium) {
+					letter-spacing: 0.34px;
+					line-height: 434px;
+					transform: matrix(1, 0, 0, 1, 0, -30.3005);
+					width: 800px;
+					height: 600px;
+					z-index: -2;
+				}
+				@include breakpoint(large up) {
+					letter-spacing: 0.34px;
+					line-height: 434px;
+					transform: matrix(1, 0, 0, 1, 0, -30.3005);
+					width: 1000px;
+					height: 700px;
+					z-index: -2;
+				}
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

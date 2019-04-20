@@ -1,0 +1,160 @@
+/**
+ * @fileoverview
+ *
+ * Styles for plan components
+ */
+$plan-background: #c8c9cb;
+$plan-main-background: $white;
+$plan-width: 960px;
+$plan-height: 460px;
+$plan-size: auto;
+$plan-gutter-output: true;
+$plan-gutters: $grid-margin-gutters;
+$plan-gutter-type: margin;
+$plan-gutter-position: top bottom;
+$plan-breakpoint: null;
+$plan-vertical: false;
+// Feature
+$plan-padding-left: 0;
+$plan-padding-right: 0;
+$plan-padding-top: 5;
+$plan-padding-bottom: 5;
+$plan-margin-left: 8;
+$plan-margin-right: 8;
+$plan-margin-top: 0;
+$plan-margin-bottom: 0;
+// Feature Main
+$plan-main-padding-left: 7;
+$plan-main-padding-right: $plan-main-padding-left + 3;
+$plan-main-padding-top: 6;
+$plan-main-padding-bottom: 6;
+$plan-main-margin-left: -8;
+$plan-main-margin-right: 0;
+$plan-main-margin-top: 0;
+$plan-main-margin-bottom: 0;
+// Feature Title
+$plan-title-primary: #1c7ce5;
+.ui-structor-plan {
+	@include xy-cell(
+			$plan-size,
+			$plan-gutter-output,
+			$plan-gutters,
+			$plan-gutter-type,
+			$plan-gutter-position
+		);
+	@include border-box;
+	// background: $plan-title-primary;
+	// color: #f0f0f0;
+	&-container {
+		@include border-box;
+		@include breakpoint(medium up) {
+			@include margin(
+				$plan-margin-top,
+				$plan-margin-right,
+				$plan-margin-bottom,
+				$plan-margin-left
+			);
+		}
+	}
+	&-content {
+		@include border-box;
+		.plan {
+			@include border-box;
+			@include xy-grid;
+			@include breakpoint(medium up) {
+				position: relative;
+				@include padding(
+					$plan-padding-top,
+					$plan-padding-right,
+					$plan-padding-bottom,
+					$plan-padding-left
+				);
+			}
+			@include border-box;
+			&-digit {
+				color: lighten(rgb(23, 41, 120), 15%);
+				@include text-transform(uppercase);
+				@include breakpoint(medium up) {
+					position: absolute;
+					bottom: 25%;
+					right: 0;
+					font-size: 11rem;
+					font-weight: 700;
+					line-height: .7;
+					letter-spacing: 0.34px;
+					z-index: 1;
+				}
+				@include breakpoint(xxlarge up) {
+					position: absolute;
+					bottom: 25%;
+					right: 20%;
+					font-size: 10rem;
+					font-weight: 700;
+					line-height: .7;
+					letter-spacing: 0.34px;
+				}
+			}
+			&-main {
+				background: $white;
+				color: $plan-title-primary;
+				font-weight: 400;
+			    font-size: 1.5rem;
+			    letter-spacing: .02em;
+			    line-height: 1.8;
+			    @include border-radius(8);
+			    @include shadow;
+				@include breakpoint(medium up) {
+					@include padding(
+						$plan-main-padding-top,
+						$plan-main-padding-right,
+						$plan-main-padding-bottom,
+						$plan-main-padding-left
+					);
+					@include margin(
+						$plan-main-margin-top,
+						$plan-main-margin-right,
+						$plan-main-margin-bottom,
+						$plan-main-margin-left
+					);
+					// z-index: 1;
+					position: absolute;
+					max-width: 50%;
+					@include flex;
+					@include flex-align(spaced, stretch);
+				}
+				&-caption {
+					@include bordered(1px, solid, $plan-title-primary);
+				}
+				&-content {
+					@include text-wrap;
+				}
+			}
+			&-image {
+				box-sizing: border-box;
+				color: rgb(200, 201, 203);
+				display: block;
+				font-weight: 700;
+				width: 400px;
+				height: 400px;
+				z-index: -1;
+				@include breakpoint(medium) {
+					letter-spacing: 0.34px;
+					line-height: 434px;
+					transform: matrix(1, 0, 0, 1, 0, -30.3005);
+					width: 800px;
+					height: 600px;
+				}
+				@include breakpoint(large up) {
+					letter-spacing: 0.34px;
+					line-height: 434px;
+					transform: matrix(1, 0, 0, 1, 0, -30.3005);
+					width: 1000px;
+					height: 700px;
+				}
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

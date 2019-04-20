@@ -1,0 +1,34 @@
+/**
+ * @fileoverview
+ *
+ * Hero section
+ */
+
+$hero-component-height: 100px;
+
+.ui-structor-hero {
+	& #page-one-hero {
+		background: url('../assets/whatif-hero.jpg') top right no-repeat;
+	}
+	& #page-two-hero {
+		background: url('../assets/whatif-hero.jpg') top right no-repeat;
+	}
+	& #page-three-hero {
+		background: url('../assets/whatif-hero.jpg') top right no-repeat;
+	}
+	& #page-four-hero {
+		background: url('../assets/whatif-hero.jpg') top right no-repeat;
+	}
+	background: url('../assets/whatif-hero.jpg');
+	background-size: 200%;
+	background-repeat: no-repeat;
+	text-align: center;
+	min-height: $hero-component-height;
+	@include breakpoint(medium up) {
+		min-height: $hero-component-height * 7;
+		background-size: cover;
+	}
+	.ui-structor-hero-content {
+	}
+}
+

@@ -1,0 +1,73 @@
+$plaid-padding-top: 5;
+$plaid-padding-left: 5;
+$plaid-padding-bottom: 5;
+$plaid-padding-right: 5;
+$plaid-margin-top: 5;
+$plaid-margin-left: null;
+$plaid-margin-bottom: 5;
+$plaid-margin-right: null;
+.ui-structor-plaid {
+	&-container {
+
+	}
+	.plaid {
+		position: relative;
+		@include padding(
+				$plaid-padding-top,
+				$plaid-padding-left,
+				$plaid-padding-bottom,
+				$plaid-padding-right
+			);
+		min-height: 700px;
+		&-title {
+			text-align: right;
+			@include padding(
+					$plaid-padding-top,
+					$plaid-padding-left,
+					$plaid-padding-bottom,
+					$plaid-padding-right
+				);
+			h1 {
+				font-size: 70px;
+				font-weight: bolder;
+			}
+		}
+		&-about {
+			@include padding(
+					$plaid-padding-top/2,
+					$plaid-padding-left/2,
+					$plaid-padding-bottom/2,
+					$plaid-padding-right/2
+				);
+			font-size: 24px;
+			font-weight: 200;
+			line-height: 1;
+			width: 50%;
+  			background: lighten(rgb(23, 41, 120), 10%);
+  			@include shadow;
+  			@include border-radius;
+  			&-background {
+  				background: lighten(rgb(23, 41, 120), 10%);
+    			mix-blend-mode: multiply;
+    			min-width: 100%;
+    			min-height: 100%;
+  			}
+			@include breakpoint(medium up) {
+				// position: absolute;
+				// bottom: 0;
+			}
+			div {
+				color: $white;
+				@include margin(
+						0,
+						0,
+						$plaid-margin-bottom,
+						0
+					);
+			}
+		}
+		&-learn-more {
+
+		}
+	}
+}
